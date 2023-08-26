@@ -202,7 +202,8 @@ button {
   #tabela th:nth-child(5),
   #tabela th:nth-child(6),
   #tabela th:nth-child(7),
-  #tabela th:nth-child(8) {
+  #tabela th:nth-child(8),
+  #tabela th:nth-child(9) {
     display: none;
   }
 
@@ -210,7 +211,8 @@ button {
   #tabela td:nth-child(5),
   #tabela td:nth-child(6),
   #tabela td:nth-child(7),
-  #tabela td:nth-child(8) {
+  #tabela td:nth-child(8),
+  #tabela td:nth-child(9) {
     display: none;
   }
 

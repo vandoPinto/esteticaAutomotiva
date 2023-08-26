@@ -26,8 +26,14 @@ document
     var endereco = document.getElementById("endereco").value;
     var veiculo1 = document.getElementById("veiculo1").value.toUpperCase();
     var placa = document.getElementById("placa").value.toUpperCase();
-    var veiculo2 = document.getElementById("veiculo2").value.toUpperCase();
-    var placa2 = document.getElementById("placa2").value.toUpperCase();
+    var veiculo2 =
+      document.getElementById("veiculo2").value != ""
+        ? document.getElementById("veiculo2").value.toUpperCase()
+        : "";
+    var placa2 =
+      document.getElementById("placa2").value != ""
+        ? document.getElementById("placa2").value.toUpperCase()
+        : "";
 
     // Adicionar um novo registro ao banco de dados
     dbRef.push({
@@ -38,7 +44,7 @@ document
       endereco: endereco,
       veiculo1: veiculo1,
       placa: placa,
-      veiculo3: veiculo2,
+      veiculo2: veiculo2,
       placa2: placa2,
     });
 
@@ -66,7 +72,7 @@ function criarLinhaTabela(chave, registro) {
             <td data-column="endereco">${registro.endereco}</td>
             <td data-column="veiculo1">${registro.veiculo1}</td>
             <td data-column="placa">${registro.placa}</td>
-            <td data-column="veiculo2">${registro.veiculo3}</td>
+            <td data-column="veiculo2">${registro.veiculo2}</td>
             <td data-column="placa2">${registro.placa2}</td>
           </tr>`;
   return linha;
@@ -113,10 +119,13 @@ function abrirModalDetalhes(chave) {
     var whatsapp = detalhes.whatsapp;
     var instagram = detalhes.instagram;
     var endereco = detalhes.endereco;
-    var veiculo1 = detalhes.veiculo1;
-    var placa = detalhes.placa;
-    var veiculo2 = detalhes.veiculo2;
-    var placa2 = detalhes.placa2;
+    var veiculo1 = detalhes.veiculo1.toUpperCase();
+    var placa = detalhes.placa.toUpperCase();
+    var veiculo2 =
+      detalhes.veiculo2 != "" ? String(detalhes.veiculo2).toUpperCase() : "";
+    var placa2 =
+      detalhes.placa2 != "" ? String(detalhes.placa2).toUpperCase() : "";
+
     var submitButton = document.getElementById("submit-edit");
     var excluirButton = document.getElementById("excluir-edit");
     var cancel = document.getElementById("cancel-edit");
@@ -127,10 +136,10 @@ function abrirModalDetalhes(chave) {
     document.getElementById("whatsapp-edit").value = whatsapp;
     document.getElementById("instagram-edit").value = instagram;
     document.getElementById("endereco-edit").value = endereco;
-    document.getElementById("veiculo1-edit").value = veiculo1.toUpperCase();
-    document.getElementById("placa-edit").value = placa.toUpperCase();
-    document.getElementById("veiculo2-edit").value = veiculo2.toUpperCase();
-    document.getElementById("placa2-edit").value = placa2.toUpperCase();
+    document.getElementById("veiculo1-edit").value = veiculo1;
+    document.getElementById("placa-edit").value = placa;
+    document.getElementById("veiculo2-edit").value = veiculo2;
+    document.getElementById("placa2-edit").value = placa2;
 
     // Cria os botões de submit
 
