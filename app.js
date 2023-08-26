@@ -24,10 +24,10 @@ document
     var whatsapp = document.getElementById("whatsapp").value;
     var instagram = document.getElementById("instagram").value;
     var endereco = document.getElementById("endereco").value;
-    var veiculo1 = document.getElementById("veiculo1").value;
-    var placa = document.getElementById("placa").value;
-    var veiculo2 = document.getElementById("veiculo2").value;
-    var placa2 = document.getElementById("placa2").value;
+    var veiculo1 = document.getElementById("veiculo1").value.toUpperCase();
+    var placa = document.getElementById("placa").value.toUpperCase();
+    var veiculo2 = document.getElementById("veiculo2").value.toUpperCase();
+    var placa2 = document.getElementById("placa2").value.toUpperCase();
 
     // Adicionar um novo registro ao banco de dados
     dbRef.push({
@@ -43,15 +43,7 @@ document
     });
 
     // Limpar o formulário
-    document.getElementById("nome").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("whatsapp").value = "";
-    document.getElementById("instagram").value = "";
-    document.getElementById("endereco").value = "";
-    document.getElementById("veiculo1").value = "";
-    document.getElementById("placa").value = "";
-    document.getElementById("veiculo2").value = "";
-    document.getElementById("placa2").value = "";
+    limparFormulario();
   });
 
 // Função para exibir os registros na tabela
@@ -135,10 +127,10 @@ function abrirModalDetalhes(chave) {
     document.getElementById("whatsapp-edit").value = whatsapp;
     document.getElementById("instagram-edit").value = instagram;
     document.getElementById("endereco-edit").value = endereco;
-    document.getElementById("veiculo1-edit").value = veiculo1;
-    document.getElementById("placa-edit").value = placa;
-    document.getElementById("veiculo2-edit").value = veiculo2;
-    document.getElementById("placa2-edit").value = placa2;
+    document.getElementById("veiculo1-edit").value = veiculo1.toUpperCase();
+    document.getElementById("placa-edit").value = placa.toUpperCase();
+    document.getElementById("veiculo2-edit").value = veiculo2.toUpperCase();
+    document.getElementById("placa2-edit").value = placa2.toUpperCase();
 
     // Cria os botões de submit
 
@@ -254,10 +246,10 @@ function adicionarRegistro() {
         var email = document.getElementById("email").value;
         var instagram = document.getElementById("instagram").value;
         var endereco = document.getElementById("endereco").value;
-        var veiculo1 = document.getElementById("veiculo1").value;
-        var placa = document.getElementById("placa").value;
-        var veiculo2 = document.getElementById("veiculo2").value;
-        var placa2 = document.getElementById("placa2").value;
+        var veiculo1 = document.getElementById("veiculo1").value.toUpperCase();
+        var placa = document.getElementById("placa").value.toUpperCase();
+        var veiculo2 = document.getElementById("veiculo2").value.toUpperCase();
+        var placa2 = document.getElementById("placa2").value.toUpperCase();
 
         // Adicionar um novo registro ao banco de dados
         dbRef.push({
@@ -317,3 +309,8 @@ function excluirRegistro(chave) {
 window.onload = function () {
   exibirRegistros();
 };
+
+if (window.applicationCache) {
+  // Armazenar o aplicativo como um atalho
+  window.applicationCache.install();
+}
