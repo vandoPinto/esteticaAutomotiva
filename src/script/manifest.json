@@ -4,7 +4,7 @@
     "description": "Sistema para cadastro de clientes",
     "icons": [
       {
-        "src": "/favicon.ico",
+        "src": "/src/img/favicon.ico",
         "sizes": "16x16 32x32 48x48 64x64 96x96 128x128 256x256 512x512"
       }
     ],
