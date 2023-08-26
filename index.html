@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <title>CRUD com Firebase</title>
+  </head>
+  <body>
+    <header>
+      <h1>CRUD com Firebase</h1>
+    </header>
+
+    <section class="content">
+      <div class="form-section">
+        <h2>Adicionar Novo Registro</h2>
+        <form id="crud-form">
+          <input type="text" id="nome" placeholder="Nome" required />
+          <input type="text" id="email" placeholder="E-mail" required />
+          <input type="text" id="whatsapp" placeholder="WhatsApp" required />
+          <input type="text" id="instagram" placeholder="Instagram" required />
+          <input type="text" id="endereco" placeholder="Endereço" required />
+          <input type="text" id="veiculo1" placeholder="Veículo" required />
+          <input type="text" id="placa" placeholder="Placa" />
+          <input type="text" id="veiculo2" placeholder="Veículo 2" />
+          <input type="text" id="placa2" placeholder="Placa 2" />
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
+
+      <div class="search-section">
+        <h2>Pesquisar</h2>
+        <input
+          type="text"
+          id="campo-pesquisa"
+          placeholder="Pesquisar usuário"
+          oninput="pesquisarUsuario()"
+        />
+        <button type="button" onclick="pesquisarUsuario()">Pesquisar</button>
+      </div>
+
+      <div class="table-section">
+        <h2>Registros</h2>
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>WhatsApp</th>
+              <th>Instagram</th>
+              <th>Endereço</th>
+              <th>Veículo</th>
+              <th>Placa</th>
+              <th>Veículo 2</th>
+              <th>Placa 2</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-corpo">
+            <!-- Registros serão inseridos aqui -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="modal" id="registroModal">
+      <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>Detalhes do Registro</h2>
+        <div id="registroDetalhes">
+          <!-- Detalhes do registro serão exibidos aqui -->
+          <form id="edit-form">
+            <input type="text" id="nome-edit" placeholder="Nome" required />
+            <input type="text" id="email-edit" placeholder="E-mail" required />
+            <input
+              type="text"
+              id="whatsapp-edit"
+              placeholder="WhatsApp"
+              required
+            />
+            <input
+              type="text"
+              id="instagram-edit"
+              placeholder="Instagram"
+              required
+            />
+            <input
+              type="text"
+              id="endereco-edit"
+              placeholder="Endereço"
+              required
+            />
+            <input
+              type="text"
+              id="veiculo1-edit"
+              placeholder="Veículo 1"
+              required
+            />
+            <input type="text" id="placa-edit" placeholder="Placa" />
+            <input type="text" id="veiculo2-edit" placeholder="Veículo 2" />
+            <input type="text" id="placa2-edit" placeholder="Placa 2" />
+            <div class="container-botoes">
+              <button type="submit" id="submit-edit">Atualizar</button>
+              <button
+                type="button"
+                id="excluir-edit"
+                style="background-color: red"
+              >
+                Excluir
+              </button>
+              <button type="button" id="cancel-edit">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-confirmacao-exclusao">
+        <h2>Confirmação de exclusão</h2>
+        <p>Tem certeza de que deseja excluir o usuário?</p>
+        <div class="container-botoes">
+          <button id="confirmar" style="background-color: red">
+            Confirmar
+          </button>
+          <button id="cancelar">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
